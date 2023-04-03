@@ -118,6 +118,7 @@ RUN cd /tmp && \
 RUN cd /tmp && \
 git clone --branch=${GUAC_VER} https://github.com/apache/guacamole-server.git guacamole-server && \
 cd guacamole-server && \
+sed -i s/ı/i/g src/protocols/rdp/keymaps/hu_hu_qwertz.keymap && \
 autoreconf -fi && \
 autoconf && \
 ./configure --prefix="$PREFIX_DIR" $GUACAMOLE_SERVER_OPTS && \
